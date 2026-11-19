@@ -76,6 +76,7 @@ jobs:
     timeout-minutes: 60
     env:
       CARGO_INCREMENTAL: "0"
+      OPENSHELL_WINDOWS_STATIC_RUNTIME: "1"
       READ_ONLY_GITHUB_TOKEN: ${{ github.token }}
       SCCACHE_GHA_ENABLED: "true"
       SCCACHE_GHA_VERSION: openshell-windows-x64
@@ -125,7 +126,7 @@ jobs:
         run: |
           $release = "target/x86_64-pc-windows-msvc/release"
           New-Item -ItemType Directory -Force package | Out-Null
-          $binaries = "openshell.exe", "openshell-gateway.exe", "openshell-supervisor.exe", "openshell-windows-sandbox.exe", "libz3.dll"
+          $binaries = "openshell.exe", "openshell-gateway.exe", "openshell-supervisor.exe", "openshell-windows-sandbox.exe"
           foreach ($file in $binaries) {
             Copy-Item -LiteralPath (Join-Path $release $file) -Destination package -ErrorAction Stop
           }

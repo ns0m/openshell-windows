@@ -21,7 +21,7 @@ Only x64 binaries are published.
 
 ## Using the binaries
 
-Download `openshell-windows-x64.zip` from the latest release and keep the four executables and `libz3.dll` in one directory: the DLL must sit next to the executables, and the gateway launches the supervisor and sandbox binaries from there.
+Download `openshell-windows-x64.zip` from the latest release and keep the four executables in one directory: the gateway launches the supervisor and sandbox binaries from there. The current Windows build links Z3 and the C runtime statically, so no `libz3.dll` or Visual C++ redistributable is required.
 Add that directory to `PATH` and check the CLI:
 
 ```powershell
